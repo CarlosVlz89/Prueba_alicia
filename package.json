@@ -1,0 +1,12 @@
+{
+  "name": "alicia-programa-de-mano",
+  "version": "1.0.0",
+  "description": "Programa de mano digital para Alicia en el país de las maravillas",
+  "main": "index.html",
+  "scripts": {
+    "dev": "http-server -p 3000"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
