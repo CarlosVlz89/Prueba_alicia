@@ -36,6 +36,19 @@ function initTabs() {
         }
       });
 
+      // Disparar animación de guiño 3D (wiggle) en cascada al entrar al Elenco
+      if (targetTab === 'elenco') {
+        const cards = document.querySelectorAll('.flip-card');
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('wiggle-active');
+            setTimeout(() => {
+              card.classList.remove('wiggle-active');
+            }, 1400);
+          }, index * 150);
+        });
+      }
+
       // Hacer scroll hacia arriba al cambiar de sección
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });

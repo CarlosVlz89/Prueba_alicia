@@ -1927,33 +1927,35 @@ body {
   transform: scale(0.97);
 }
 
-/* Indicador de Giro en las Cartas de Personaje */
-.flip-hint {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: rgba(255, 255, 255, 0.85);
-  color: var(--color-red);
-  font-family: var(--font-mono);
-  font-size: 8.5px;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 4px 8px;
-  border-radius: 4px;
-  border: 1px solid var(--border-light);
-  letter-spacing: 0.5px;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  z-index: 20;
-  user-select: none;
+/* Brillo dorado sutil y pulsante en la cara frontal */
+.flip-card-front {
+  animation: cardPulseGlow 3s infinite ease-in-out;
 }
 
-.theme-dark .flip-hint {
-  background-color: rgba(24, 20, 18, 0.9);
-  color: var(--color-yellow);
-  border-color: var(--border-light);
+@keyframes cardPulseGlow {
+  0% {
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+    border-color: var(--border-light);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.45);
+    border-color: var(--color-yellow);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+    border-color: var(--border-light);
+  }
+}
+
+/* Animación de Wiggle (Giro sutil de presentación) */
+@keyframes cardWiggle {
+  0% { transform: rotateY(0); }
+  25% { transform: rotateY(15deg); }
+  75% { transform: rotateY(-15deg); }
+  100% { transform: rotateY(0); }
+}
+
+.wiggle-active .flip-card-inner {
+  animation: cardWiggle 1.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
