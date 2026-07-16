@@ -55,6 +55,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overscroll-behavior-y: none; /* Evitar rebotes en el scroll de móviles */
 }
 
 body {
@@ -65,8 +66,8 @@ body {
   font-size: calc(15px * var(--font-scale));
   overflow-x: hidden;
   position: relative;
-  min-height: 100vh;
-  padding-bottom: 72px; /* Margen para nav inferior */
+  min-height: 100dvh; /* Viewport dinámico */
+  padding-bottom: calc(80px + env(safe-area-inset-bottom)); /* Espacio dinámico para nav */
   
   /* Transición fluida para el cambio de tema */
   transition: background-color var(--transition-speed) ease,
@@ -744,8 +745,9 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 64px;
-  background-color: rgba(252, 249, 242, 0.95);
+  height: calc(64px + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+  background-color: var(--bg-main); /* Adaptable al modo oscuro y 100% opaco */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid var(--border-light);
@@ -1957,5 +1959,14 @@ body {
 
 .wiggle-active .flip-card-inner {
   animation: cardWiggle 1.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Forzar centrado del título del test */
+.quiz-promo-card, .quiz-promo-card .card-subtitle-serif {
+  text-align: center !important;
+}
+
+.quiz-modal-title {
+  text-align: center !important;
 }
 
