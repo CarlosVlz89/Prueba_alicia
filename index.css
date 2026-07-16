@@ -1927,3 +1927,33 @@ body {
   transform: scale(0.97);
 }
 
+/* Indicador de Giro en las Cartas de Personaje */
+.flip-hint {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--color-red);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border-light);
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  z-index: 20;
+  user-select: none;
+}
+
+.theme-dark .flip-hint {
+  background-color: rgba(24, 20, 18, 0.9);
+  color: var(--color-yellow);
+  border-color: var(--border-light);
+}
+
